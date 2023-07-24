@@ -1,12 +1,19 @@
 import React from 'react'
 import { View } from 'react-native';
+import { createContext } from 'react';
 
-const Favorite_Context = () => {
-  return (
-    <View>
-      
-    </View>
-  )
-}
+export const FavoriteContext = createContext({
+    ids: [],
+    addFavorite: (id) => {},
+    removeFavorite: (id) => {}
+});
 
-export default Favorite_Context;
+const FavoriteContextProvider = ({ children }) => {
+  return(
+    <FavoriteContext.Provider>
+        {children}
+    </FavoriteContext.Provider>
+  );
+};
+
+export default FavoriteContextProvider;

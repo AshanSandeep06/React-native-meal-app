@@ -11,6 +11,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import FavoritesScreen from './screens/FavoritesScreen';
 import IconButton from './components/IconButton';
 import { Ionicons } from '@expo/vector-icons'
+import FavoriteContextProvider from './store/context/Favorite_Context';
 
 // Create Native Stack Navigator
 const Stack = createNativeStackNavigator();
@@ -51,38 +52,40 @@ export default function App() {
             {/* Status Bar eka light wenwa */}
             <StatusBar style='light' />
 
-            <NavigationContainer>
-                {/* Me Native stack navigator ekata, Screens tika denna ona */}
-                <Stack.Navigator initialRouteName='MealsCategories' 
-                    // screenOptions={{
-                    //     headerStyle: {backgroundColor: "#351401"}, 
-                    //     headerTintColor: "#fff", 
-                    //     contentStyle:{backgroundColor: "#3f2f25"}}}
-                >
-                    {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
-                    <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{
-                        title: "Meals Categories",
-                        // This headerShown prop represents that this Screen's header title is hidden by this prop
-                        headerShown: false
-                    }}
-                        // options={{ title: "Meals Categories",
+            <FavoriteContextProvider>
+                <NavigationContainer>
+                    {/* Me Native stack navigator ekata, Screens tika denna ona */}
+                    <Stack.Navigator initialRouteName='MealsCategories' 
+                        // screenOptions={{
                         //     headerStyle: {backgroundColor: "#351401"}, 
                         //     headerTintColor: "#fff", 
-                        //     contentStyle:{backgroundColor: "#3f2f25"} }} 
-                    />
-                    <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} options={{title: "Meals Overview"}}
-                        // options={{ title: "Meals Overview",
-                        //     headerStyle: {backgroundColor: "#351401"}, 
-                        //     headerTintColor: "#fff", 
-                        //     contentStyle:{backgroundColor: "#3f2f25"} }} 
-                    />
-                    <Stack.Screen name='MealDetails' component={MealDetailsScreen} options={{
-                         title: "Meal Details",
-                         // We can use useLayoutEffect Hook instead of this options Prop
-                        //  headerRight: () => <Button title='Save' />
-                    }} />
-                </Stack.Navigator>
-            </NavigationContainer>
+                        //     contentStyle:{backgroundColor: "#3f2f25"}}}
+                    >
+                        {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
+                        <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{
+                            title: "Meals Categories",
+                            // This headerShown prop represents that this Screen's header title is hidden by this prop
+                            headerShown: false
+                        }}
+                            // options={{ title: "Meals Categories",
+                            //     headerStyle: {backgroundColor: "#351401"}, 
+                            //     headerTintColor: "#fff", 
+                            //     contentStyle:{backgroundColor: "#3f2f25"} }} 
+                        />
+                        <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} options={{title: "Meals Overview"}}
+                            // options={{ title: "Meals Overview",
+                            //     headerStyle: {backgroundColor: "#351401"}, 
+                            //     headerTintColor: "#fff", 
+                            //     contentStyle:{backgroundColor: "#3f2f25"} }} 
+                        />
+                        <Stack.Screen name='MealDetails' component={MealDetailsScreen} options={{
+                            title: "Meal Details",
+                            // We can use useLayoutEffect Hook instead of this options Prop
+                            //  headerRight: () => <Button title='Save' />
+                        }} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </FavoriteContextProvider>
         </>
     );
 }
