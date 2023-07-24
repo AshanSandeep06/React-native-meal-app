@@ -5,7 +5,11 @@ import CategoriesScreen from './screens/CategoriesScreen';
 
 export default function App() {
     return (
-        <CategoriesScreen />
+        <>
+            {/* Status Bar eka light wenwa */}
+            <StatusBar style='light' />
+            <CategoriesScreen />
+        </>
     );
 }
 
