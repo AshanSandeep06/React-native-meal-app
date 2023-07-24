@@ -37,7 +37,11 @@ export default function App() {
                         //     headerTintColor: "#fff", 
                         //     contentStyle:{backgroundColor: "#3f2f25"} }} 
                     />
-                    <Stack.Screen name='MealDetails' component={MealDetailsScreen} options={{ title: "Meal Details" }} />
+                    <Stack.Screen name='MealDetails' component={MealDetailsScreen} options={{
+                         title: "Meal Details",
+                         // We can use useLayoutEffect Hook instead of this options Prop
+                        //  headerRight: () => <Button title='Save' />
+                    }} />
                 </Stack.Navigator>
             </NavigationContainer>
         </>
