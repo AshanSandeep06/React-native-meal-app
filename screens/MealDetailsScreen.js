@@ -9,22 +9,31 @@ import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native";
 import IconButton from "../components/IconButton";
 import { FavoriteContext } from "../store/context/Favorite_Context";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../store/redux/favoriteSlice";
 
 const MealDetailsScreen = ({ route }) => {
     const { mealId } = route.params;
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-    // useContext Hook
-    const favoriteMealContext = useContext(FavoriteContext);
-    // Check if already having the meal in favorites using meal id
-    // return a boolean
-    const mealsFavorite = favoriteMealContext.ids.includes(mealId);
+    // useContext Hook ---->
+    // const favoriteMealContext = useContext(FavoriteContext);
+    // // Check if already having the meal in favorites using meal id
+    // // return a boolean
+    // const mealsFavorite = favoriteMealContext.ids.includes(mealId);
+
+    const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
+    const dispatch = useDispatch();
+
+    const mealsFavorite = favoriteMealIds.includes(mealId);
 
     const changeFavoriteStatusHandler = () => {
         if(mealsFavorite){
-            favoriteMealContext.removeFavorite(mealId);
+            // favoriteMealContext.removeFavorite(mealId);
+            dispatch(removeFavorite({ id: mealId }));
         } else {
-            favoriteMealContext.addFavorite(mealId);
+            // favoriteMealContext.addFavorite(mealId);
+            dispatch(addFavorite({ id: mealId }));
         }
     };
 
