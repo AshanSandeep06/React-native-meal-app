@@ -2,13 +2,16 @@ import {StatusBar} from 'expo-status-bar';
 import { useState } from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import CategoriesScreen from './screens/CategoriesScreen';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
     return (
         <>
             {/* Status Bar eka light wenwa */}
             <StatusBar style='light' />
-            <CategoriesScreen />
+            <NavigationContainer>
+                <CategoriesScreen />
+            </NavigationContainer>
         </>
     );
 }
