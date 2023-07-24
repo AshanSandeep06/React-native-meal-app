@@ -18,7 +18,13 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
     return(
-        <Drawer.Navigator>
+        <Drawer.Navigator 
+            screenOptions={{
+                headerStyle: {backgroundColor: "#351401"}, 
+                headerTintColor: "#fff", 
+                sceneContainerStyle: {backgroundColor: "#3f2f25"}
+            }}
+        >
             <Drawer.Screen name='Categories' component={CategoriesScreen} />
             <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{ title: 'Favorites' }} />
         </Drawer.Navigator>
@@ -33,11 +39,12 @@ export default function App() {
 
             <NavigationContainer>
                 {/* Me Native stack navigator ekata, Screens tika denna ona */}
-                <Stack.Navigator initialRouteName='MealsCategories' screenOptions={{
-                    headerStyle: {backgroundColor: "#351401"}, 
-                    headerTintColor: "#fff", 
-                    contentStyle:{backgroundColor: "#3f2f25"}}
-                }>
+                <Stack.Navigator initialRouteName='MealsCategories' 
+                    // screenOptions={{
+                    //     headerStyle: {backgroundColor: "#351401"}, 
+                    //     headerTintColor: "#fff", 
+                    //     contentStyle:{backgroundColor: "#3f2f25"}}}
+                >
                     {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
                     <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{
                         title: "Meals Categories",
