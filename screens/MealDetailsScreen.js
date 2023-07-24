@@ -16,7 +16,8 @@ const MealDetailsScreen = ({ route }) => {
 
     // useContext Hook
     const favoriteMealContext = useContext(FavoriteContext);
-
+    // Check if already having the meal in favorites using meal id
+    // return a boolean
     const mealsFavorite = favoriteMealContext.ids.includes(mealId);
 
     const headerButtonPressHandler = () => {
