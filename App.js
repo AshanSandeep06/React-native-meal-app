@@ -22,10 +22,14 @@ const DrawerNavigator = () => {
             screenOptions={{
                 headerStyle: {backgroundColor: "#351401"}, 
                 headerTintColor: "#fff", 
-                sceneContainerStyle: {backgroundColor: "#3f2f25"}
+                sceneContainerStyle: {backgroundColor: "#3f2f25"},
+                drawerContentStyle: {backgroundColor: '#351401'},
+                drawerActiveTintColor: '#351401',
+                drawerActiveBackgroundColor: '#e4baa1',
+                drawerInactiveTintColor: "#fff"
             }}
         >
-            <Drawer.Screen name='Categories' component={CategoriesScreen} />
+            <Drawer.Screen name='Categories' component={CategoriesScreen} options={{title: "All Categories"}} />
             <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{ title: 'Favorites' }} />
         </Drawer.Navigator>
     );
