@@ -21,7 +21,11 @@ const MealDetailsScreen = ({ route }) => {
     const mealsFavorite = favoriteMealContext.ids.includes(mealId);
 
     const changeFavoriteStatusHandler = () => {
-        
+        if(mealsFavorite){
+            favoriteMealContext.removeFavorite(mealId);
+        } else {
+            favoriteMealContext.addFavorite(mealId);
+        }
     };
 
     const navigation = useNavigation();
@@ -29,7 +33,7 @@ const MealDetailsScreen = ({ route }) => {
     //useLayoutEffect Hook
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <IconButton icon={mealsFavorite ? 'start' : 'star-outline'} color="white" onPress={changeFavoriteStatusHandler} />
+            headerRight: () => <IconButton icon={mealsFavorite ? 'star' : 'star-outline'} color="white" onPress={changeFavoriteStatusHandler} />
         });
     }, [navigation, changeFavoriteStatusHandler]);
 
