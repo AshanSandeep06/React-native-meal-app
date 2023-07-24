@@ -13,7 +13,7 @@ const CategoriesScreen = ({ navigation }) => {
     const renderCategoryItem = (itemData) => {
         const pressHandler = () => {
             // For navigate to Meals Overview Screen
-            navigationHook.navigate("Meals Overview", { categoryId: itemData.item.id });
+            navigationHook.navigate("MealsOverview", { categoryId: itemData.item.id });
         };
     
         return <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />

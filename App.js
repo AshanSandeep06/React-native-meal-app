@@ -18,10 +18,10 @@ export default function App() {
 
             <NavigationContainer>
                 {/* Me Native stack navigator ekata, Screens tika denna ona */}
-                <Stack.Navigator initialRouteName='Meals Categories'>
+                <Stack.Navigator initialRouteName='MealsCategories'>
                     {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
-                    <Stack.Screen name="Meals Categories" component={CategoriesScreen} />
-                    <Stack.Screen name="Meals Overview" component={MealsOverviewScreen} />
+                    <Stack.Screen name="MealsCategories" component={CategoriesScreen} options={{ title: "Meals Categories" }} />
+                    <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} options={{ title: "Meals Overview" }} />
                 </Stack.Navigator>
             </NavigationContainer>
         </>
