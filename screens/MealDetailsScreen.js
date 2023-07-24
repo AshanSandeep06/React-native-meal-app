@@ -4,14 +4,20 @@ import { MEALS } from "../data/dummy-data";
 import { Image } from "react-native";
 import MealDetail from "../components/MealDetail";
 import MealItem from "../components/MealItem"
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native";
 import IconButton from "../components/IconButton";
+import { FavoriteContext } from "../store/context/Favorite_Context";
 
 const MealDetailsScreen = ({ route }) => {
     const { mealId } = route.params;
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+    // useContext Hook
+    const favoriteMealContext = useContext(FavoriteContext);
+
+    const mealsFavorite = favoriteMealContext.ids.includes(mealId);
 
     const headerButtonPressHandler = () => {
         console.log("Header button pressed");
@@ -22,7 +28,7 @@ const MealDetailsScreen = ({ route }) => {
     //useLayoutEffect Hook
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <IconButton icon="star" color="white" onPress={headerButtonPressHandler} />
+            headerRight: () => <IconButton icon={mealsFavorite ? 'start' : 'star-outline'} color="white" onPress={headerButtonPressHandler} />
         });
     }, [navigation, headerButtonPressHandler]);
 
