@@ -19,7 +19,7 @@ const MealDetailsScreen = ({ route }) => {
         navigation.setOptions({
             headerRight: () => <Button title="Click Me" />
         });
-    });
+    }, [navigation]);
 
     const mealItemProps = {
         title: selectedMeal.title,
