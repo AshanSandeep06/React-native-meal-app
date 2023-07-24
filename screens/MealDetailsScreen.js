@@ -3,7 +3,7 @@ import { Text, View }  from "react-native";
 import { MEALS } from "../data/dummy-data";
 import { Image } from "react-native";
 import MealDetail from "../components/MealDetail";
-import MealItem from "../components/MealItem"
+import MealItem from "../components/MealList/MealItem"
 import { useContext, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native";
