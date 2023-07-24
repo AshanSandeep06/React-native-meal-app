@@ -4,13 +4,21 @@ import { CATEGORIES } from '../data/dummy-data'
 import { Text } from 'react-native'
 import CategoryGridTitle from '../components/CategoryGridTitle';
 
-const renderCategoryItem = (itemData) => {
-    return(
-        <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} />
-    );
-};
+import { useNavigation } from '@react-navigation/native';
 
-const CategoriesScreen = () => {
+const CategoriesScreen = ({ navigation }) => {
+
+    const navigationHook = useNavigation();
+
+    const renderCategoryItem = (itemData) => {
+        const pressHandler = () => {
+            // For navigate to Meals Overview Screen
+            navigationHook.navigate("Meals Overview", { categoryId: itemData.item.id });
+        };
+    
+        return <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />
+    };
+
   return (
     <FlatList
         data={CATEGORIES}
