@@ -18,10 +18,24 @@ export default function App() {
 
             <NavigationContainer>
                 {/* Me Native stack navigator ekata, Screens tika denna ona */}
-                <Stack.Navigator initialRouteName='MealsCategories'>
+                <Stack.Navigator initialRouteName='MealsCategories' screenOptions={{ title: "Meals Categories",
+                    headerStyle: {backgroundColor: "#351401"}, 
+                    headerTintColor: "#fff", 
+                    contentStyle:{backgroundColor: "#3f2f25"}}
+                }>
                     {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
-                    <Stack.Screen name="MealsCategories" component={CategoriesScreen} options={{ title: "Meals Categories" }} />
-                    <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} options={{ title: "Meals Overview" }} />
+                    <Stack.Screen name="MealsCategories" component={CategoriesScreen} 
+                        // options={{ title: "Meals Categories",
+                        //     headerStyle: {backgroundColor: "#351401"}, 
+                        //     headerTintColor: "#fff", 
+                        //     contentStyle:{backgroundColor: "#3f2f25"} }} 
+                    />
+                    <Stack.Screen name="MealsOverview" component={MealsOverviewScreen}
+                        // options={{ title: "Meals Overview",
+                        //     headerStyle: {backgroundColor: "#351401"}, 
+                        //     headerTintColor: "#fff", 
+                        //     contentStyle:{backgroundColor: "#3f2f25"} }} 
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </>
