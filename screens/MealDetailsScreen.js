@@ -22,9 +22,9 @@ const MealDetailsScreen = ({ route }) => {
     //useLayoutEffect Hook
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <IconButton onPress={headerButtonPressHandler} />
+            headerRight: () => <IconButton icon="star" color="white" onPress={headerButtonPressHandler} />
         });
-    }, [navigation]);
+    }, [navigation, headerButtonPressHandler]);
 
     const mealItemProps = {
         title: selectedMeal.title,
