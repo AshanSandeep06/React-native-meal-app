@@ -4,10 +4,22 @@ import { MEALS } from "../data/dummy-data";
 import { Image } from "react-native";
 import MealDetail from "../components/MealDetail";
 import MealItem from "../components/MealItem"
+import { useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { Button } from "react-native";
 
 const MealDetailsScreen = ({ route }) => {
     const { mealId } = route.params;
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+    const navigation = useNavigation();
+
+    //useLayoutEffect Hook
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => <Button title="Click Me" />
+        });
+    });
 
     const mealItemProps = {
         title: selectedMeal.title,
