@@ -7,17 +7,22 @@ import MealItem from "../components/MealItem"
 import { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native";
+import IconButton from "../components/IconButton";
 
 const MealDetailsScreen = ({ route }) => {
     const { mealId } = route.params;
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+    const headerButtonPressHandler = () => {
+        console.log("Header button pressed");
+    };
 
     const navigation = useNavigation();
 
     //useLayoutEffect Hook
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <Button title="Click Me" />
+            headerRight: () => <IconButton onPress={headerButtonPressHandler} />
         });
     }, [navigation]);
 
