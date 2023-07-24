@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import { FlatList } from "react-native";
+import MealItem from "../components/MealItem";
 
 const MealsOverviewScreen = ({ route }) => {
     const { categoryId } = route.params;
@@ -8,9 +9,18 @@ const MealsOverviewScreen = ({ route }) => {
     const displayMeals = MEALS.filter((mealItem) => mealItem.categoryIds.indexOf(categoryId) >= 0);
 
     const renderMealItems = (itemData) => {
-        return <View>
-            <Text>{itemData.item.title}</Text>
-        </View>
+        const item = itemData.item;
+
+            {/* Creating props of Meal Item */}
+            const mealItemProps = {
+                title: item.title,
+                imageUrl: item.imageUrl,
+                complexity: item.complexity,
+                affordability: item.affordability,
+                duration: item.duration
+            };
+
+        return <View> <MealItem {...mealItemProps} /> </View>
     };
 
     return (
