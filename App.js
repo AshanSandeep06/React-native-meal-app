@@ -56,10 +56,10 @@ export default function App() {
                 <NavigationContainer>
                     {/* Me Native stack navigator ekata, Screens tika denna ona */}
                     <Stack.Navigator initialRouteName='MealsCategories' 
-                        // screenOptions={{
-                        //     headerStyle: {backgroundColor: "#351401"}, 
-                        //     headerTintColor: "#fff", 
-                        //     contentStyle:{backgroundColor: "#3f2f25"}}}
+                        screenOptions={{
+                            headerStyle: {backgroundColor: "#351401"}, 
+                            headerTintColor: "#fff", 
+                            contentStyle:{backgroundColor: "#3f2f25"}}}
                     >
                         {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
                         <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{
