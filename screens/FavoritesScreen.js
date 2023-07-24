@@ -6,9 +6,11 @@ import MealList from '../components/MealList/MealList';
 import { useSelector } from 'react-redux';
 
 const FavoritesScreen = props => {
+  // Using Context API
   // const favoriteMealContext = useContext(FavoriteContext);
   // const allFavoriteMeals = MEALS.filter((meal) => favoriteMealContext.ids.includes(meal.id));
 
+  // Using Redux Toolkit
   const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
   const allFavoriteMeals = MEALS.filter((meal) => favoriteMealIds.includes(meal.id));
 
