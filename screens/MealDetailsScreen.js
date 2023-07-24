@@ -20,8 +20,8 @@ const MealDetailsScreen = ({ route }) => {
     // return a boolean
     const mealsFavorite = favoriteMealContext.ids.includes(mealId);
 
-    const headerButtonPressHandler = () => {
-        console.log("Header button pressed");
+    const changeFavoriteStatusHandler = () => {
+        
     };
 
     const navigation = useNavigation();
@@ -29,9 +29,9 @@ const MealDetailsScreen = ({ route }) => {
     //useLayoutEffect Hook
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <IconButton icon={mealsFavorite ? 'start' : 'star-outline'} color="white" onPress={headerButtonPressHandler} />
+            headerRight: () => <IconButton icon={mealsFavorite ? 'start' : 'star-outline'} color="white" onPress={changeFavoriteStatusHandler} />
         });
-    }, [navigation, headerButtonPressHandler]);
+    }, [navigation, changeFavoriteStatusHandler]);
 
     const mealItemProps = {
         title: selectedMeal.title,
