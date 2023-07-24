@@ -20,7 +20,11 @@ const MealsOverviewScreen = ({ route }) => {
                 duration: item.duration
             };
 
-        return <View> <MealItem {...mealItemProps} /> </View>
+        return(
+            <View>
+                <MealItem {...mealItemProps} /> 
+            </View>
+        );
     };
 
     return (
