@@ -34,13 +34,13 @@ const DrawerNavigator = () => {
             <Drawer.Screen name='Categories' component={CategoriesScreen} options={{
                 title: "All Categories", 
                 drawerIcon: ({ color, size }) => {
-                    <Ionicons name='list' size={size} color={color} />
+                    return <Ionicons name='list' size={size} color={color} />;
                 },
             }} />
             <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{
                  title: 'Favorites',
                  drawerIcon: ({ color, size }) => {
-                    <Ionicons name='list' size={size} color={color} />
+                    return <Ionicons name='star' size={size} color={color} />;
                 },
             }} />
         </Drawer.Navigator>
