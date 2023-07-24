@@ -20,7 +20,7 @@ const DrawerNavigator = () => {
     return(
         <Drawer.Navigator>
             <Drawer.Screen name='Categories' component={CategoriesScreen} />
-            <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{ title: 'Favorites Screen' }} />
+            <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{ title: 'Favorites' }} />
         </Drawer.Navigator>
     );
 };
@@ -39,7 +39,11 @@ export default function App() {
                     contentStyle:{backgroundColor: "#3f2f25"}}
                 }>
                     {/* name --> kyna prop eka magin me screen ekata header ekk set wenwa */}
-                    <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{title: "Meals Categories"}}
+                    <Stack.Screen name="MealsCategories" component={DrawerNavigator} options={{
+                        title: "Meals Categories",
+                        // This headerShown prop represents that this Screen's header title is hidden by this prop
+                        headerShown: false
+                    }}
                         // options={{ title: "Meals Categories",
                         //     headerStyle: {backgroundColor: "#351401"}, 
                         //     headerTintColor: "#fff", 
