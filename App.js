@@ -15,6 +15,12 @@ import FavoriteContextProvider from './store/context/Favorite_Context';
 import { Provider } from 'react-redux';
 import { store } from './store/redux/store';
 
+import { name as appName } from './package.json';
+
+// Add this line to enable React Native for Web
+import { AppRegistry } from 'react-native';
+AppRegistry.registerComponent(appName, () => App);
+
 // Create Native Stack Navigator
 const Stack = createNativeStackNavigator();
 
