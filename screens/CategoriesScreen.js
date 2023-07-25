@@ -5,6 +5,8 @@ import { Text } from 'react-native'
 import CategoryGridTitle from '../components/CategoryGridTitle';
 
 import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
+import { getMeals } from '../axios';
 
 const CategoriesScreen = ({ navigation }) => {
 
@@ -18,6 +20,10 @@ const CategoriesScreen = ({ navigation }) => {
     
         return <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />
     };
+
+    useEffect(() => {
+      getMeals();
+    }, []);
 
   return (
     <FlatList
